@@ -2,6 +2,10 @@
 
 StreamingTV Android version with global channels
 
+## Donate
+
+[![](https://www.paypalobjects.com/en_US/IT/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=3YV7U24F5HFLE)
+
 ## Licence
 
 	Copyright (C) 2020-2021  Alessio Manai
