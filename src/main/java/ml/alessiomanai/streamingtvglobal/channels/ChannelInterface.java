@@ -35,14 +35,14 @@ public class ChannelInterface extends AppCompatActivity {
 
     public void fullScreencall() {
 
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
-        decorView.setSystemUiVisibility(uiOptions);
-
         int display_mode = getResources().getConfiguration().orientation;
 
         if (display_mode == Configuration.ORIENTATION_LANDSCAPE) {
             Objects.requireNonNull(getSupportActionBar()).hide();
+
+            View decorView = getWindow().getDecorView();
+            int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+            decorView.setSystemUiVisibility(uiOptions);
         }
     }
 
