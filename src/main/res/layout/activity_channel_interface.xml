@@ -6,20 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".channels.ChannelInterface">
 
-    <LinearLayout
+    <com.google.android.exoplayer2.ui.StyledPlayerView
+        android:id="@+id/playerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        >
-
-        <WebView
-            android:id="@+id/channelwebview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-        </WebView>
-
-    </LinearLayout>
+        android:layout_height="match_parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,16 +6,19 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+
+
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.MediaItem;
+import com.google.android.exoplayer2.ui.StyledPlayerView;
 
 import java.util.Objects;
 
 import ml.alessiomanai.streamingtvglobal.R;
-import ml.alessiomanai.streamingtvglobal.utils.M3u8Reader;
-import ml.alessiomanai.streamingtvglobal.utils.WebViewSettings;
 
 public class ChannelInterface extends AppCompatActivity {
+
+    private ExoPlayer player;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,14 +26,22 @@ public class ChannelInterface extends AppCompatActivity {
         setContentView(R.layout.activity_channel_interface);
 
         Intent intent = getIntent();
+        StyledPlayerView playerView = findViewById(R.id.playerView);
 
-        WebView finestra = findViewById(R.id.channelwebview);
+        player = new ExoPlayer.Builder(this).build();
+        playerView.setPlayer(player);
 
-        WebViewSettings.doSettings(finestra);
-        finestra.setWebViewClient(new WebViewClient());
+        MediaItem mediaItem = MediaItem.fromUri(intent.getStringExtra("URL"));
 
-        String html = M3u8Reader.getHtmlReader(intent.getStringExtra("URL"));
-        finestra.loadData(html, "text/html", null);
+        player.setMediaItem(mediaItem);
+        player.prepare();
+        player.play();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.release();
     }
 
     public void fullScreencall() {

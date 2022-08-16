@@ -5,6 +5,7 @@ import android.webkit.WebView;
 
 public class WebViewSettings {
 
+    @Deprecated
     @SuppressLint("SetJavaScriptEnabled")
     public static WebView doSettings(WebView finestra){
 

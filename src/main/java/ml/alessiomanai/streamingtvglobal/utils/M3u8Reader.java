@@ -2,6 +2,7 @@ package ml.alessiomanai.streamingtvglobal.utils;
 
 public class M3u8Reader {
 
+    @Deprecated
     public static String getHtmlReader(String url){
 
         return "<html>\n" +
